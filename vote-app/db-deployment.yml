@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: nginx 
-        image: tomcat:9.0
+        image: tomcat
 
         ports:
         - name: http 
