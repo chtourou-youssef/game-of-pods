@@ -1,0 +1,24 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: stark-front
+  namespace: argocd
+spec:
+  project: default
+ 
+  source:
+    repoURL: https://github.com/chtourou-youssef/game-of-pods.git
+    targetRevision: HEAD
+    path: front-stark
+  
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: default
+  
+  syncPolicy:
+    syncOptions:
+    - CreateNamespace=true
+    
+    automated:
+      selfHeal: false #enable auto sync with github repo
+      prune: true

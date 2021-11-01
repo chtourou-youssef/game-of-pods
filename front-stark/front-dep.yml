@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: stark-front-dep
+  labels:
+    app: front
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: front
+  template:
+    metadata:
+      labels:
+        app: front
+    spec:
+      containers:
+      - name: stark-front 
+        image: ychtourou123/front:002
+        ports:
+        - name: http 
+          containerPort: 80
+      imagePullSecrets:
+      - name: regcred
+
