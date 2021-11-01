@@ -9,7 +9,7 @@ spec:
   source:
     repoURL: https://github.com/chtourou-youssef/game-of-pods.git
     targetRevision: HEAD
-    path: nginx-appp
+    path: nginx-app
   
   destination:
     server: https://kubernetes.default.svc
