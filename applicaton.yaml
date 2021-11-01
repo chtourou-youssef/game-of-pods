@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: myapp-argo-application
+  name: nginx-app
   namespace: argocd
 spec:
   project: default
@@ -9,7 +9,7 @@ spec:
   source:
     repoURL: https://github.com/chtourou-youssef/game-of-pods.git
     targetRevision: HEAD
-    path: vote-app
+    path: nginx-appp
   
   destination:
     server: https://kubernetes.default.svc
