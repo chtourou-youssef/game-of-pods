@@ -4,6 +4,8 @@ metadata:
   name: example-pvc
   namespace: default
 spec:
+  accessModes:
+  - ReadWriteOnce
   storageClassName: standard
   accessModes:
     - ReadWriteOnce
