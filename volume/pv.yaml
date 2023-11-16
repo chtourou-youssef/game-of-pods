@@ -3,6 +3,7 @@ kind: PersistentVolume
 metadata:
   name: example-pv
 spec:
+  storageClassName: standard
   capacity:
     storage: 1Gi
   volumeMode: Filesystem
