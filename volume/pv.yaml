@@ -9,6 +9,6 @@ spec:
     storage: 1Gi
   volumeMode: Filesystem
   accessModes:
-    - ReadWriteOnce
+    - ReadWriteMany
   hostPath:
     path: "/tmp/vol"      
