@@ -1,0 +1,23 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: mid
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  project: default
+
+  source:
+    repoURL: https://github.com/chtourou-youssef/game-of-pods.git
+    targetRevision: HEAD
+    path: path: ./app-of-apps/manifests/mid
+    
+   
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: multiple
+
+  syncPolicy:
+    syncOptions:
+      - CreateNamespace=true

@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dbjasper
+  labels:
+    app: dbjasper
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: dbjasper
+  template:
+    metadata:
+      labels:
+        app: dbjasper
+    spec:
+      containers:
+        - name: mysql
+          image: mysql:5.7
+          ports:
+            - containerPort: 3306
+          env:
+            - name: MYSQL_ROOT_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: mysql-secrets
+                  key: ROOT_PASSWORD
+          volumeMounts:
+            - mountPath: "/var/lib/mysql"
+              name: mysql-data
+          resources: 
+             requests: 
+               memory: 1024Mi
+             limits:
+               memory: 4096Mi
+      volumes:
+        - name: mysql-data
+          persistentVolumeClaim:
+            claimName: pvc-jasper-db
+

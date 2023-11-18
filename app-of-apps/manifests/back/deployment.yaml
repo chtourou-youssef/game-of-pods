@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: b2b-laravel
+  name: b2b-laravel
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: b2b-laravel
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 0
+  template:
+    metadata:
+      labels:
+        app: b2b-laravel
+    spec:
+      containers:
+        - image: httpd
+          name: b2b-laravel
+          ports:
+            - name: server
+              containerPort: 80
+            - name: web-socket
+              containerPort: 6002
+          volumeMounts:
+            - mountPath: /var/www/html
+              name: b2b-uploadfiles
+      volumes:
+        - name: b2b-uploadfiles
+          persistentVolumeClaim:
+            claimName: b2bpvc

@@ -1,0 +1,27 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    k8s-app: b2b-vuejs
+  name: b2b-vuejs
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      k8s-app: b2b-vuejs
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 0
+  template:
+    metadata:
+      labels:
+        k8s-app: b2b-vuejs
+    spec:
+      containers:
+        - image: tomcat
+          name: b2b-vuejs
+          ports:
+            - containerPort: 8080

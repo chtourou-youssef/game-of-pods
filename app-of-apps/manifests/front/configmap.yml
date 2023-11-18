@@ -1,0 +1,25 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: env-config
+  namespace: default
+data:
+  VUE_APP_baseUrl: ""
+  VUE_APP_imgBaseUrl: ""
+  VUE_APP_serverPort: "30011"
+  VUE_APP_host: "10.0.190.217"
+  VUE_APP_public: "https://app.stark-solutions.online"
+  VUE_APP_wsHost: "10.0.190.217"
+  VUE_APP_wsPort: "6002"
+  VUE_APP_wssPort: "6002"
+  VUE_APP_encrypteDectrypteKey: ""
+  VUE_APP_cookieAuth: ""
+  VUE_APP_cookieToken: ""
+  VUE_APP_cookieRefToken: ""
+  VUE_APP_i18n_redirected: ""
+  VUE_APP_i18n_redirected_new: ""
+  VUE_APP_langChangedByUser: ""
+  VUE_APP_langDir: "lang/locales/"
+  VUE_APP_defaultLocale: "en"
+  VUE_APP_titleTemplate: "STARK B2B"
+  VUE_APP_title: "WELCOME TO STARK B2B"

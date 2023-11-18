@@ -1,0 +1,14 @@
+kind: Service
+apiVersion: v1
+metadata:
+  labels:
+    k8s-app: b2b-vuejs
+  name: b2b-vuejs
+spec:
+  ports:
+    - port: 8080
+      targetPort: 8080
+      nodePort: 30011
+  selector:
+    k8s-app: b2b-vuejs
+  type: NodePort
