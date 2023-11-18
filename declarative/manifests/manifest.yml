@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: geocentric-model-app
+  name: geocentric-app
   namespace: argocd
   finalizers:
     - resources-finalizer.argocd.argoproj.io
@@ -9,13 +9,13 @@ spec:
   project: default
 
   source:
-    repoURL: http://165.22.209.118:3000/siddharth/gitops-argocd.git
+    repoURL: https://github.com/chtourou-youssef/game-of-pods.git
     targetRevision: HEAD
-    path: ./declarative/manifests/geocentric-model
+    path: ./declarative/application
    
   destination:
     server: https://kubernetes.default.svc
-    namespace: geocentric-model
+    namespace: application
 
   syncPolicy:
     syncOptions:
