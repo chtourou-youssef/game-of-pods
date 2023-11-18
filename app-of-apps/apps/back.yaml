@@ -11,9 +11,8 @@ spec:
   source:
     repoURL: https://github.com/chtourou-youssef/game-of-pods.git
     targetRevision: HEAD
-    path: path: ./app-of-apps/manifests/back
-    
-   
+    path: ./app-of-apps/manifests/back
+       
   destination:
     server: https://kubernetes.default.svc
     namespace: multiple
